@@ -1,4 +1,7 @@
 Hướng dẫn cài đặt và sử dụng phần mềm:
+Cài đặt thư viện của openSSL:
+  linux: sudo apt-get install libssl-dev
+  window: idk :)
 1. Check File para.h example
   1.1 Coppy file và tạo 1 file mới có tên "para.h"
   1.2 Thay đổi các params theo hướng dẫn ở trong file
@@ -34,3 +37,8 @@ Encoded audio length: 3549985
 354  Go ahead z6-20020a637e06000000b00496317241f9sm11072220pgc.51 - gsmtp
 250 2.0.0 OK  1675329207 z6-20020a637e06000000b00496317241f9sm11072220pgc.51 - gsmtp
 221 2.0.0 closing connection z6-20020a637e06000000b00496317241f9sm11072220pgc.51 - gsmtp
+
+5. Để debug nếu gặp lỗi, chạy lệnh "gdb ./main"
+
+Contract for more information: fb.com/viethung2209
+Thanks! <3
