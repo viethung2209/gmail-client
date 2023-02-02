@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"base64.h": "c",
+		"socket.h": "c",
+		"para.h": "c",
+		"ssl.h": "c",
+		"bio.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
+}
