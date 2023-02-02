@@ -21,6 +21,9 @@
 
 #define BUF_LEN 1024
 #define BOUNDARY "boundary"
+#define imagePath "/home/e5470/Pictures/anh.png"
+#define audioPath "/home/e5470/Downloads/audio.mp3"
+#define videoPath "/home/e5470/Downloads/video.mp4"
 
 char *MailHeader(const char *from, const char *to, const char *subject, const char *mime_type, const char *charset)
 {
@@ -163,7 +166,7 @@ int main(int argc, char **argv)
           // strcpy(_cmd8, "I own CodeVlog you tube channel");
           // SSL_write(ssl, _cmd8, sizeof(_cmd8));
 
-          FILE *fp = fopen("/home/e5470/Pictures/anh.png", "rb");
+          FILE *fp = fopen(imagePath, "rb");
           if (!fp)
           {
             perror("fopen");
@@ -174,7 +177,7 @@ int main(int argc, char **argv)
           fseek(fp, 0, SEEK_SET);
           char *base64_image = (char *)calloc(size, 1);
           size_t image_len = fread(base64_image, 1, size, fp);
-          printf("Image size: %d\n", image_len);
+          printf("\nImage size: %d\n", image_len);
           fclose(fp);
 
           char *encoded_image = (char *)calloc(image_len * 2, 1);
@@ -217,7 +220,7 @@ int main(int argc, char **argv)
           SSL_write(ssl, audio_header, strlen(audio_header));
 
           // Add audio file attachment
-          fp = fopen("/home/e5470/Downloads/audio.mp3", "rb");
+          fp = fopen(audioPath, "rb");
           if (!fp)
           {
             perror("fopen");
@@ -228,7 +231,7 @@ int main(int argc, char **argv)
           fseek(fp, 0, SEEK_SET);
           char *base64_audio = (char *)calloc(size, 1);
           size_t audio_len = fread(base64_audio, 1, size, fp);
-          printf("Audio size: %d\n", audio_len);
+          printf("\nAudio size: %d\n", audio_len);
           fclose(fp);
 
           char *encoded_audio = (char *)calloc(audio_len * 2, 1);
@@ -252,7 +255,7 @@ int main(int argc, char **argv)
 
           SSL_write(ssl, video_header, strlen(video_header));
 
-          fp = fopen("/home/e5470/Downloads/video.mp4", "rb");
+          fp = fopen(videoPath, "rb");
           if (!fp)
           {
             perror("fopen");
@@ -263,7 +266,7 @@ int main(int argc, char **argv)
           fseek(fp, 0, SEEK_SET);
           char *base64_video = (char *)calloc(size, 1);
           size_t video_len = fread(base64_video, 1, size, fp);
-          printf("Video size: %d\n", video_len);
+          printf("\nVideo size: %d\n", video_len);
           fclose(fp);
 
           char *encoded_video = (char *)calloc(video_len * 2, 1);
